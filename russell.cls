@@ -315,9 +315,9 @@
 
 % Defines writer's google scholar profile (optional)
 % Usage: \googlescholar{<googlescholar userid>}{<googlescholar username>}
-% e.g.https://scholar.google.co.uk/citations?user=wpZDx1cAAAAJ
+% e.g. https://scholar.google.com/citations?user=wpZDx1cAAAAJ
 % would be \googlescholar{wpZDx1cAAAAJ}{Name-to-display-next-icon}
-% If 'googlescholar-name' is not provided than it defaults to
+% If 'googlescholarname' is not provided than it defaults to
 % '\firstname \lastname'
 \newcommand*{\googlescholar}[2]{%
   \def\@googlescholarid{#1}%
@@ -325,6 +325,21 @@
     \def\@googlescholarname{\@firstname~\@lastname}%
   }{%
     \def\@googlescholarname{#2}%
+  }%
+}
+
+% Defines writer's google patents list (optional)
+% Usage: \googlepatents{<googlepatents userid>}{<googlepatents username>}
+% e.g. https://patents.google.com/?inventor=John+James+SMITH
+% would be \googlepatents{John+James+SMITH}{Name-to-display-next-icon}
+% If 'googlepatentsname' is not provided than it defaults to
+% '\firstname \lastname'
+\newcommand*{\googlepatents}[2]{%
+  \def\@googlepatentsid{#1}%
+  \ifthenelse{\equal{#2}{}}{%
+    \def\@googlepatentsname{\@firstname~\@lastname}%
+  }{%
+    \def\@googlepatentsname{#2}%
   }%
 }
 
@@ -559,6 +574,12 @@
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{https://scholar.google.com/citations?user=\@googlescholarid}{\faGraduationCap\acvHeaderIconSep\@googlescholarname}%
+        }%
+      \ifthenelse{\isundefined{\@googlepatentsid}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \href{https://patents.google.com/?inventor=\@googlepatentsid}{\faCopyright\acvHeaderIconSep\@googlepatentsname}%
         }%
       \ifthenelse{\isundefined{\@extrainfo}}%
         {}%

@@ -1,3 +1,4 @@
-.DS_Store
-*/.DS_Store
-*/*/.DS_Store
+**/.DS_Store
+resume.*
+!resume.tex
+!resume.pdf
