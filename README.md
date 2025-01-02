@@ -1,2 +1,2 @@
-# resume
-Forked from: https://github.com/themagicalmammal/Resume
+# CV
+Repository for my [Curriculum Vitae](resume.pdf)
