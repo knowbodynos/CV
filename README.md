@@ -1,2 +1,2 @@
-# CV
-Repository for my [Curriculum Vitae](resume.pdf)
+# resume
+Repository for my [resume](resume.pdf).
